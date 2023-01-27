@@ -36,7 +36,7 @@
         <br>
         Comments: <input type="text" data-th-field="*{comments}">
         <br>
-        <button type="reset" name="Place Order" value="Cancel">Cancel Order</button>
+        <button type="submit" name="Place Order" value="Cancel" data-th-formaction="@{/}" data-th-formmethod="get">Cancel Order</button>
         <button type="submit" name="Place Order" value="Submit">Place Order</button>
 
     </form>

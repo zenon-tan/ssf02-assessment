@@ -12,13 +12,12 @@
 
 <body data-th-object="${order}">
 
-    <p>Order number: <span data-th-text="*{orderId}"></span></p>
+    <p>Order number: <span><a data-th-href="@{${'/order/' + order.orderId}}" data-th-text="${order.orderId}"></a></span></p>
     <p>Name: <span data-th-text="*{name}"></span></p>
     <p>Address: <span data-th-text="*{address}"></span></p>
     <p>Pizza Cost: $ <span data-th-text="${cost}"></span></p>
     <!-- <p>Rush: <span data-th-text="*{isRush}"></span></p> -->
     <p data-th-if="*{isRush} == 'true'">Rush: $2</p>
-    <p data-th-if="*{isRush} == 'false'">Rush: $0</p>
     <p>Total Cost: $ <span data-th-text="${finalcost}"></span></p>
 
 </body>

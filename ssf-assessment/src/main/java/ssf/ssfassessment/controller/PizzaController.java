@@ -93,6 +93,8 @@ public class PizzaController {
         model.addAttribute("cost", cost);
         model.addAttribute("finalcost", finalcost);
 
+        sessions.invalidate();
+
         return "ordered";
     }
     
