@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+</head>
+
+<body>
+
+    <h2>Order Delivery Details</h2>
+
+    <form action="#" data-th-action="@{/pizza/order}" method="post" data-th-object="${order}">
+
+        <div data-th-if="${#fields.hasAnyErrors()}">
+            <ul>
+                <li data-th-each="err : ${#fields.allErrors()}" data-th-text="${err}"></li>
+            </ul>
+        </div>
+
+        Name: <input type="text" data-th-field="*{name}">
+        <br>
+        Address: <input type="text" data-th-field="*{address}">
+        <br>
+        Phone: <input type="text" data-th-field="*{phone}">
+        <br>
+        Rush: <input type="checkbox" value="true" data-th-field="*{isRush}">
+        <br>
+        Comments: <input type="text" data-th-field="*{comments}">
+        <br>
+        <button type="reset" name="Place Order" value="Cancel">Cancel Order</button>
+        <button type="submit" name="Place Order" value="Submit">Place Order</button>
+
+    </form>
+
+</body>
+
+</html>
