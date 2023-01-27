@@ -2,12 +2,8 @@ package ssf.ssfassessment.model;
 
 import java.io.Serializable;
 
-import jakarta.json.Json;
-import jakarta.json.JsonObjectBuilder;
-import jakarta.validation.ReportAsSingleViolation;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public class Pizza implements Serializable {

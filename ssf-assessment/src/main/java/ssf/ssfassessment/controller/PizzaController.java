@@ -38,23 +38,20 @@ public class PizzaController {
         
     }
 
-    @PostMapping(path = "/pizza")
-    public String showDetailForm(@Valid Pizza pizza, Order order, Model model, BindingResult binding, HttpSession sessions) {
+    @PostMapping(path = "/pizza", consumes = "application/x-www-form-urlencoded")
+    public String showDetailForm(@Valid Pizza pizza, BindingResult binding, Order order, Model model, HttpSession sessions) {
+
+        sessions.setAttribute("pizza", pizza);
 
         if(binding.hasErrors()) {
 
-            // model.addAttribute("pizza", pizza);
+            model.addAttribute("pizza", pizza);
             return "index";
 
         }
 
-        sessions.setAttribute("pizza", pizza);
-
         order = new Order();
         sessions.setAttribute("order", order);
-        System.out.println("PIZZA: " + pizza.getPizza());
-        System.out.println("SIZE: " + pizza.getSize());
-        System.out.println("Quantity: " + pizza.getQuantity());
 
         model.addAttribute("pizza", pizza);
         model.addAttribute("order", order);
@@ -63,8 +60,8 @@ public class PizzaController {
         return "orderform";
     }
 
-    @PostMapping(path = "/pizza/order")
-    public String showOrder(@Valid Order order, Model model, HttpSession sessions, BindingResult binding) {
+    @PostMapping(path = "/pizza/order", consumes = "application/x-www-form-urlencoded")
+    public String showOrder(@Valid Order order, BindingResult binding, Model model, HttpSession sessions) {
 
         Pizza pizza = (Pizza) sessions.getAttribute("pizza");
 

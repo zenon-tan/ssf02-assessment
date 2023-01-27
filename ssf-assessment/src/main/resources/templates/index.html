@@ -4,6 +4,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Panucci's Pizza</title>
+		<style>
+			.error {
+				color: red;
+			}
+		</style>
 		<link rel="stylesheet" href="/styles.css">
 	</head>
 	<body>
@@ -17,7 +22,7 @@
 
 			<p data-th-if="${#fields.hasAnyErrors()}">
                 <ul>
-                    <li data-th-each="err : ${#fields.allErrors()}" data-th-text="${err}"></li>
+                    <li data-th-each="err : ${#fields.allErrors()}" data-th-text="${err}" class="error"></li>
                 </ul>
             </p>
 
@@ -79,7 +84,7 @@
 					<tr>
 						<td>Quantity:</td>
 						<td>
-							<input type="number" min="1" name="quantity" data-th-field="*{quantity}"> 
+							<input type="number" name="quantity" data-th-field="*{quantity}"> 
 						</td>
 					</tr>
 					<tr>

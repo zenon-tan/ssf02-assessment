@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
     <title>Order Details</title>
 </head>
 
@@ -16,11 +21,12 @@
 
         <div data-th-if="${#fields.hasAnyErrors()}">
             <ul>
-                <li data-th-each="err : ${#fields.allErrors()}" data-th-text="${err}"></li>
+                <li data-th-each="err : ${#fields.allErrors()}" data-th-text="${err}" class="error"></li>
             </ul>
         </div>
 
         Name: <input type="text" data-th-field="*{name}">
+        <!-- <span data-th-if="${#fields.hasErrors('name')}" data-th-errors="${order.name}"></span> -->
         <br>
         Address: <input type="text" data-th-field="*{address}">
         <br>
