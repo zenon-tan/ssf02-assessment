@@ -3,9 +3,6 @@ package ssf.ssfassessment.model;
 import java.io.Serializable;
 import java.util.Random;
 
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonObjectBuilder;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
