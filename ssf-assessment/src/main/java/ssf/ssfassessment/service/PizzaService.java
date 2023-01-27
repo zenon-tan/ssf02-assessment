@@ -61,6 +61,8 @@ public class PizzaService {
 
         System.out.println(jsonObj.toString());
 
+        pRepo.saveToRepo(order, jsonObj);
+
     }
     
 }
